@@ -12,14 +12,14 @@ let cSelect = computerPlay();
 console.log(cSelect); //to see what computer selects
 let pSelect = prompt('Enter your selection: ');
 
-function gameStart(computerSelection, playerSelection) {
-    if(computerSelection === playerSelection) {
+function gameStart(computerSelection , playerSelection) {
+    if(computerSelection.toLowerCase() == playerSelection.toLowerCase()) {
         console.log('We have a DRAW people!!');
         return;
     }
-    switch (playerSelection) {
+    switch (playerSelection.toLowerCase()) {
         case 'rock' :
-            if(computerSelection == 'paper') {
+            if(computerSelection.toLowerCase() == 'paper') {
                 console.log(`You LOSE! ${computerSelection} beats ${playerSelection}`);
             } else {
                 console.log(`You WIN! ${playerSelection} beats ${computerSelection}`);
@@ -27,7 +27,7 @@ function gameStart(computerSelection, playerSelection) {
             break;
 
         case 'scissors' :
-            if(computerSelection == 'rock') {
+            if(computerSelection.toLowerCase() == 'rock') {
                 console.log(`You LOSE! ${computerSelection} beats ${playerSelection}`);
             } else {
                 console.log(`You WIN! ${playerSelection} beats ${computerSelection}`);
@@ -35,7 +35,7 @@ function gameStart(computerSelection, playerSelection) {
             break;
 
         case 'paper' :
-            if(computerSelection== 'scissors') {
+            if(computerSelection.toLowerCase() == 'scissors') {
                 console.log(`You LOSE! ${computerSelection} beats ${playerSelection}`);
             } else {
                 console.log(`You WIN! ${playerSelection} beats ${computerSelection}`);
