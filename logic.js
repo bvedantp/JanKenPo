@@ -14,7 +14,8 @@ function computerPlay() {
 let cCount=0;
 let pCount=0;
 
-function gameStart(computerSelection , playerSelection) {
+function playRound(computerSelection , playerSelection) {
+    if(!computerSelection || !playerSelection) return;
     if(computerSelection.toLowerCase() == playerSelection.toLowerCase()) { //to make it case insensitive by converting to lower case
         return ('We have a DRAW people!!');
     }
@@ -46,15 +47,39 @@ function gameStart(computerSelection , playerSelection) {
                 cCount++;
                 return (`You LOSE! ${computerSelection} beats ${playerSelection}`);
             } else {
-                pCount++; //is this changing global value permanently or withoin function scope??
+                pCount++; //is this changing global value permanently or within function scope??
                 return (`You WIN! ${playerSelection} beats ${computerSelection}`);
-            }
+            } 
             break;
     }
 }
 
-//console.log(gameStart(cSelect,pSelect));
 
+//problem was e.target ko event listener se lena tha or playround ko dena tha which can be done
+//by passing the function playround itself into event listener and not phle e.target.id pass kro then
+//think of how to pass that into playround.
+//while(pCount<=5 || cCount<=5){
+window.addEventListener('click', (e) => {
+    let computer= computerPlay();
+    //let para= document.createElement("p");
+    let para= document.getElementById("result");
+     playRound(computer, e.target.id);
+    //result.appendChild(para);
+    para.innerHTML= `Current score is P: ${pCount}   C: ${cCount}`;
+    if(pCount==5) {
+        para.innerHTML='You win man, you win';
+        cCount=0;
+        pCount=0;
+    } else if (cCount==5){
+        para.innerHTML='I win bro 8) - Computer';
+        cCount=0;
+        pCount=0;
+    }
+});
+//}
+
+//console.log(gameStart(cSelect,pSelect));
+/*
 function game() {
     for( let i=0;i<5;i++) {
         let player= prompt('Enter your selectionn: ');
@@ -73,4 +98,4 @@ function game() {
     }
 }
 
-game();
+game(); */
