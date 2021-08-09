@@ -1,0 +1,25 @@
+:root {
+  background: #d826fc;
+  color: #f3f02c;
+  font-weight: bold;
+  font-size: xx-large;
+  font-family: Arial, Helvetica, sans-serif;
+  -webkit-text-stroke: 1px rgb(0, 0, 0);
+}
+body {
+    height: 100%;
+  display: grid;
+}
+
+.buttons {
+    margin: auto;
+    margin-top: 4rem;
+}
+
+.button {
+  border: 5px solid rgb(245, 245, 245);
+}
+.results {
+    margin: auto;
+    margin-top: 10px;
+}

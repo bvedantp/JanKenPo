@@ -63,6 +63,7 @@ window.addEventListener('click', (e) => {
     let computer= computerPlay();
     //let para= document.createElement("p");
     let para= document.getElementById("result");
+    console.log(e.target.id);
      playRound(computer, e.target.id);
     //result.appendChild(para);
     para.innerHTML= `Current score is P: ${pCount}   C: ${cCount}`;
@@ -76,9 +77,8 @@ window.addEventListener('click', (e) => {
         pCount=0;
     }
 });
-//}
 
-//console.log(gameStart(cSelect,pSelect));
+
 /*
 function game() {
     for( let i=0;i<5;i++) {
